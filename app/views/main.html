@@ -1,0 +1,50 @@
+<div class="container">
+
+      <form ng-submit="personVm.addEmployee()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" ng-model="personVm.newEmp.name" class="form-control" id="name" placeholder="Employee Name...">
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" ng-model="personVm.newEmp.username" class="form-control" id="username" placeholder="Employee Username...">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" ng-model="personVm.newEmp.email" class="form-control" id="email" placeholder="Employee Email...">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add Employee</button>
+</form>
+
+
+    <hr>
+
+
+      <input class="form-control" type="search" ng-model="personVm.searchStr" placeholder="Search Here...." />
+<hr />
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Delete</th>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>USENAME</th>
+      <th>EMAIL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="personVm1 in personVm.users | filter: personVm.searchStr">
+      <td>
+        <i ng-click="personVm.deleteEmployee($index)" class="glyphicon glyphicon-remove"></i>
+      </td>
+      <td>{{personVm1.id}}</td>
+      <td>{{personVm1.name}}</td>
+      <td>{{personVm1.username}}</td>
+      <td>{{personVm1.email}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+  </div>
